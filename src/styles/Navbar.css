@@ -1,0 +1,25 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.3rem 0.5rem;
+}
+
+.left a {
+  margin-left: 4.5rem;
+  font-size: 1.2rem;
+}
+
+.right {
+  border: solid 1px rgb(134, 133, 133);
+  padding: 10px;
+  border-radius: 1.8pc;
+}
+
+.right,
+.left,
+.navbar,
+.left a,
+.right i {
+  background-color: white !important;
+}
