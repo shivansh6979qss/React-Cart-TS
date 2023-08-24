@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import SnackbarReducer from './features/SnackbarSlice';
+import CartReducer from './features/CartSlice';
 
 const store = configureStore({
   reducer: {
-    snackbarReducer: SnackbarReducer,
+    Snackbar: SnackbarReducer,
+    Cart: CartReducer,
   },
 });
 

@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 import '../styles/Navbar.css';
 import { FiShoppingCart } from 'react-icons/fi';
+import { useSelector } from 'react-redux';
 
 const Navbar = () => {
+  const d = 10;
   return (
     <>
       <nav className="navbar">
@@ -12,7 +14,10 @@ const Navbar = () => {
           <Link to={'/store'}>Store</Link>
         </div>
         <div className="right">
-          <FiShoppingCart size={28} />
+          <div className="right-container">
+            <FiShoppingCart size={28} />
+          </div>
+          <span className="countLabel">{d}</span>
         </div>
       </nav>
     </>

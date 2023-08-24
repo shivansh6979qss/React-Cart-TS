@@ -1,20 +1,37 @@
+@keyframes RotatingEdge {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.3rem 0.5rem;
+  padding: 0.75rem 1rem;
 }
 
 .left a {
   margin-left: 4.5rem;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   text-decoration: none;
+  color: black;
 }
 
-.right {
-  border: solid 1px rgb(134, 133, 133);
+.right-container {
+  border: 1.5px solid rgb(228, 226, 226);
   padding: 10px;
   border-radius: 1.8pc;
+}
+
+.right :hover {
+  background-color: rgb(138, 216, 206) !important;
+  color: white;
+  animation: RotatingEdge 1s ease-in;
 }
 
 .right,
@@ -23,4 +40,27 @@
 .left a,
 .right i {
   background-color: white !important;
+}
+
+.left a:hover {
+  border-bottom: 2px solid aquamarine;
+}
+.left a:focus {
+  font-weight: bold;
+}
+
+.countLabel {
+  border-radius: 1pc;
+  background-color: rgb(214, 55, 87);
+  color: white;
+  text-align: center;
+  padding: 5px;
+  position: absolute;
+  bottom: -10px;
+  font-size: 0.8rem;
+  right: -5px;
+}
+
+.right {
+  position: relative;
 }
