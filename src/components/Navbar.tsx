@@ -3,8 +3,17 @@ import '../styles/Navbar.css';
 import { FiShoppingCart } from 'react-icons/fi';
 import { useSelector } from 'react-redux';
 
+type stateProps = {
+  items: Object;
+  noOfItems: number;
+};
+
 const Navbar = () => {
+  const TotalNoOfItems = useSelector(
+    (state: stateProps) => state.Cart.noOfItems
+  );
   const d = 10;
+  console.log(TotalNoOfItems);
   return (
     <>
       <nav className="navbar">
@@ -17,7 +26,7 @@ const Navbar = () => {
           <div className="right-container">
             <FiShoppingCart size={28} />
           </div>
-          <span className="countLabel">{d}</span>
+          <span className="countLabel">{TotalNoOfItems}</span>
         </div>
       </nav>
     </>

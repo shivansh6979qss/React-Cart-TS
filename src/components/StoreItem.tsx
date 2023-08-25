@@ -1,5 +1,10 @@
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  addItems,
+  removeAllItems,
+  removeItems,
+} from '../redux/features/CartSlice';
 
 type StoreItemProp = {
   id: number;
@@ -13,15 +18,24 @@ type stateProps = {
 };
 
 const StoreItem = ({ id, imgUrl, name, price }: StoreItemProp) => {
+  const dispatch = useDispatch();
   const dataItems = useSelector((state: stateProps) => state.Cart);
 
   const { items, noOfItems } = dataItems;
   console.log(noOfItems);
-  console.log(dataItems);
+  console.log('items', dataItems.items);
 
-  const decrementHandler = () => {};
-  const incrementHandler = () => {};
-  const removeHandler = () => {};
+  const particularItemQuantity = dataItems.items.find((x: any) => x.id == id);
+  console.log('particularrr', particularItemQuantity);
+  const decrementHandler = (id: number) => {
+    dispatch(removeItems({ id }));
+  };
+  const incrementHandler = (id: number, price: number) => {
+    dispatch(addItems({ id, price }));
+  };
+  const removeHandler = (id: number) => {
+    dispatch(removeAllItems({ id }));
+  };
 
   return (
     <div className="card" key={id}>
@@ -36,7 +50,6 @@ const StoreItem = ({ id, imgUrl, name, price }: StoreItemProp) => {
         {noOfItems > 0 ? (
           <>
             <div className="btn-cart">
-              {' '}
               <button onClick={() => decrementHandler(id)}>
                 <AiOutlineMinus
                   style={{
@@ -66,7 +79,12 @@ const StoreItem = ({ id, imgUrl, name, price }: StoreItemProp) => {
             </button>
           </>
         ) : (
-          <button className="addtocart">+ Add To Cart</button>
+          <button
+            className="addtocart"
+            onClick={() => incrementHandler(id, price)}
+          >
+            + Add To Cart
+          </button>
         )}
       </div>
     </div>

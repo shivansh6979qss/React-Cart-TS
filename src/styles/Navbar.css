@@ -50,15 +50,15 @@
 }
 
 .countLabel {
-  border-radius: 1pc;
+  border-radius: 60%;
   background-color: rgb(214, 55, 87);
   color: white;
   text-align: center;
-  padding: 5px;
+  padding: 2px 5px;
   position: absolute;
-  bottom: -10px;
+  bottom: -5px;
   font-size: 0.8rem;
-  right: -5px;
+  right: 2px;
 }
 
 .right {
